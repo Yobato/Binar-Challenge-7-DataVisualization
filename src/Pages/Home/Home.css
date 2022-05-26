@@ -5,15 +5,15 @@ html {
 }
 
 .btn-nav {
-  background-color: #5cb85f;
+  background-color: #5cb85f !important;
   border-radius: 2px;
-  color: #fff;
+  color: #fff !important;
   /* font-weight: 900; */
 }
 
 .btn-utama {
-  background-color: #5cb85f;
-  color: #fff;
+  background-color: #5cb85f !important;
+  color: #fff !important;
   padding: 8px 12px;
 }
 
@@ -125,6 +125,10 @@ a {
 
 .ant-collapse {
   background-color: #ffff !important;
+}
+
+canvas {
+  max-height: 400px !important;
 }
 
 @media screen and (max-width: 985px) {

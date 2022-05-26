@@ -10,11 +10,50 @@ import Hrs from "../../image/icon_24hrs.png";
 import Profesional from "../../image/icon_professional.png";
 import { Collapse, Space } from "antd";
 import Footer from "../../components/Footer/Footer";
+import NavbarHome from "../../components/NavbarHome/NavbarHome";
+import { useNavigate } from "react-router-dom";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Pie } from "react-chartjs-2";
 const { Panel } = Collapse;
 
+ChartJS.register(ArcElement, Tooltip, Legend);
+ChartJS.defaults.plugins.legend.position = "bottom";
+
 function Home() {
+  const navigate = useNavigate();
+
+  const navSearch = () => {
+    navigate("/Landing");
+  };
+
+  const data = {
+    labels: ["Xenia", "Avanza", "Fortuner", "Ertiga", "Innova"],
+    datasets: [
+      {
+        label: "# of Votes",
+        data: [12, 19, 3, 5, 3],
+        backgroundColor: [
+          "rgba(222, 39, 94, 0.8)",
+          "rgba(0, 117, 202, 0.8)",
+          "rgba(249, 255, 143, 0.8)",
+          "rgba(122, 237, 130, 0.8)",
+          "rgba(240, 183, 119, 0.8)",
+        ],
+        borderColor: [
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+          "rgba(75, 192, 192, 1)",
+          "rgba(255, 159, 64, 1)",
+        ],
+        borderWidth: 0,
+      },
+    ],
+  };
+
   return (
     <div>
+      <NavbarHome />
       <div id="halaman-1" className="halaman-1">
         <div className="container-fluid pt-5">
           <div className="row d-flex align-items-center mt-5">
@@ -36,7 +75,10 @@ function Home() {
                     kualitas terbaik dengan harga terjangkau. Selalu siap
                     melayani kebutuhanmu untuk sewa mobil selama 24 jam.
                   </p>
-                  <button className="btn btn-utama mb-4 fw-bold">
+                  <button
+                    className="btn btn-utama mb-4 fw-bold"
+                    onClick={navSearch}
+                  >
                     Mulai Sewa Mobil
                   </button>
                 </div>
@@ -48,7 +90,6 @@ function Home() {
           </div>
         </div>
       </div>
-
       <div id="halaman-2" className="halaman-2">
         <div className="container">
           <div className="row d-flex align-items-center">
@@ -107,7 +148,6 @@ function Home() {
           </div>
         </div>
       </div>
-
       <div id="halaman-3" className="halaman-3">
         <div className="container">
           <h1 className="heading">Why Us?</h1>
@@ -165,6 +205,48 @@ function Home() {
         </div>
       </div>
 
+      <div id="halaman-4" className="halaman-4">
+        <div className="container">
+          <div className="row d-flex">
+            <div className="col-lg-6">
+              <Pie data={data} />
+            </div>
+            <div className="col-lg-6">
+              <h1
+                className="judul"
+                style={{
+                  fontSize: "36px",
+                  lineHeight: "54px",
+                  maxWidth: "568px",
+                }}
+              >
+                Pertimbangkan Mobilmu dan Dapatkan Pengalaman Sewa Terbaik
+              </h1>
+              <p>
+                Sewa mobil di (Lokasimu) bersama Binar Car Rental jaminan harga
+                lebih murah dibandingkan yang lain, kondisi mobil baru, serta
+                kualitas pelayanan terbaik untuk perjalanan wisata, bisnis,
+                wedding, meeting, dll.
+              </p>
+              <ul className="list-group">
+                <li className="mb-3">
+                  <img src={cekList} className="me-3" alt="" />
+                  Sewa Mobil Dengan Supir di Bali 12 Jam
+                </li>
+                <li className="mb-3">
+                  <img src={cekList} className="me-3" alt="" />
+                  Sewa Mobil Lepas Kunci di Bali 24 Jam
+                </li>
+                <li className="mb-3">
+                  <img src={cekList} className="me-3" alt="" />
+                  Sewa Mobil Jangka Panjang Bulanan
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div id="halaman-5" className="halaman-5">
         <div
           className="container text-center"
@@ -188,7 +270,6 @@ function Home() {
           </button>
         </div>
       </div>
-
       <div id="halaman-6" className="halaman-6">
         <div className="container" style={{ marginBottom: "11%" }}>
           <div className="row">
@@ -244,7 +325,6 @@ function Home() {
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );

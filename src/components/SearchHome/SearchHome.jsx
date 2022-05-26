@@ -14,7 +14,7 @@ function SearchHome() {
   let navigate = useNavigate();
 
   const navigateDataList = () => {
-    navigate(`Search`);
+    navigate("/Search");
   };
 
   const onChange = (date, dateString) => {
