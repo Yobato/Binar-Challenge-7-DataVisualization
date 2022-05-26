@@ -1,0 +1,29 @@
+.main-menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #0d28a6;
+  width: 70px;
+  color: white !important;
+  font-size: 12px;
+  z-index: 60;
+}
+
+.main-menu a,
+.main-menu a:hover {
+  color: white !important;
+  text-decoration: none;
+}
+
+.box {
+  height: 70px;
+}
+
+.box:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.side-icon {
+  width: 30px;
+}
