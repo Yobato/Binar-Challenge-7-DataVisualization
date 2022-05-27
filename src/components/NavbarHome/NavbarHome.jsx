@@ -7,6 +7,7 @@ function NavbarHome() {
       <nav
         className="navbar navbar-expand-lg navbar-light fixed-top"
         style={{ backgroundColor: "#F1F3FF" }}
+        Id="navbarHome"
       >
         <div className="container">
           <button
@@ -37,16 +38,16 @@ function NavbarHome() {
                 aria-current="#"
                 href="#halaman-2"
               >
-                Our Services
+                <b>Our Services</b>
               </a>
               <a className="link nav-link me-4" href="#halaman-3">
-                Why Us
+                <b>Why Us</b>
               </a>
               <a className="link nav-link me-4" href="#halaman-4">
-                Testimonial
+                <b>Testimonial</b>
               </a>
               <a className="link nav-link me-4" href="#halaman-6">
-                FAQ
+                <b>FAQ</b>
               </a>
               <button type="button" className="btn btn-nav me-0">
                 <strong>Register</strong>

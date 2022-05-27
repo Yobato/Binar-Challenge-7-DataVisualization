@@ -1,10 +1,9 @@
-.side-inactive {
-  display: none;
-  width: 0;
+.sidebar {
+  top: 64px;
+  bottom: 0;
+  left: 70px;
+  width: 13rem;
+  z-index: 40;
+  background-color: white;
 }
 
-.side-width {
-  width: 200px;
-  margin-left: 70px;
-  height: 100vh;
-}

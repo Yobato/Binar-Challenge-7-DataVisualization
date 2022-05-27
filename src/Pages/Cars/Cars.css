@@ -1,0 +1,16 @@
+.wrapper {
+  margin-left: 70px;
+  margin-top: 60px;
+}
+
+.content-sidebar-shown {
+  margin-left: 13rem;
+}
+
+.content-sidebar-hidden {
+  margin-left: 0;
+}
+
+.content-section {
+  padding: 35px;
+}

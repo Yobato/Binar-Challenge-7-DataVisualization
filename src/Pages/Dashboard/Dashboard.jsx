@@ -3,6 +3,9 @@ import { Table } from "antd";
 import "antd/dist/antd.css";
 import Navbar from "../../components/Navbar/Navbar";
 import "./Dashboard.css";
+import MainMenu from "../../components/MainMenu/MainMenu";
+import { FaChevronRight } from "react-icons/fa";
+import Sidebar from "../../components/Sidebar/Sidebar";
 
 function Dashboard() {
   const columns = [
@@ -143,38 +146,40 @@ function Dashboard() {
     console.log("params", pagination, filters, sorter, extra);
   }
 
+  const [displaySidebar, setDisplaySidebar] = useState(true);
+  const toggleSidebar = () => {
+    return setDisplaySidebar(!displaySidebar);
+  };
+
   // const dashboard = useState("Dashboard");
 
   return (
     <>
-      <Navbar name="Dashboard" />
-      <div
-        className="content-section"
-        style={{
-          left: "13rem",
-          top: "4rem",
-          bottom: "0",
-          right: "0",
-          padding: "1.25rem",
-        }}
-      >
-        <div className="row">
-          <div className="col-lg-0" id="show-col-lg-0">
-            <div className="adding-space" style={{ width: "300px" }}></div>
+      <MainMenu />
+      <Navbar toggleSidebar={toggleSidebar} />
+      <Sidebar show={displaySidebar} name="Dashboard" />
+      <div className="wrapper position-relative">
+        <div
+          className={`${
+            displaySidebar ? "content-sidebar-shown" : "content-sidebar-hidden"
+          } content-section`}
+          style={{ backgroundColor: "#f4f5f7", height: "100%" }}
+        >
+          <div className="row">
+            <span style={{ marginBottom: "20px" }}>
+              <a style={{ padding: "2px 15px 0px 0px", fontSize: "12pt" }}>
+                <b>Dashboard</b>
+              </a>
+              <FaChevronRight size="15" />
+              <a style={{ padding: "2px 0px 0px 15px", fontSize: "12pt" }}>
+                Dashboard
+              </a>
+            </span>
           </div>
-          <div
-            className="col-lg-12"
-            id="show-col-lg-12"
-            style={{ marginTop: "90px" }}
-          >
-            <h3>Dashboard</h3>
-            <Table
-              columns={columns}
-              dataSource={data}
-              onChange={onChange}
-              style={{ zIndex: -1 }}
-            />
-          </div>
+          <h4 style={{ marginBottom: "20px" }}>
+            <b>Dashboard</b>
+          </h4>
+          <Table columns={columns} dataSource={data} onChange={onChange} />
         </div>
       </div>
     </>

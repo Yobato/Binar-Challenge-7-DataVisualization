@@ -25,9 +25,7 @@ function CarList() {
     // setDataList([]);
 
     try {
-      const res = await axios(
-        "https://rent-cars-api.herokuapp.com/customer/car"
-      );
+      const res = await axios("https://rent-car-appx.herokuapp.com/admin/car");
       setDataList(res.data);
     } catch (error) {
       console.log(error);
@@ -108,9 +106,7 @@ function CarList() {
                       </Select>
                     </div>
                     <div className="col-lg-3">
-                      <label for="inputPenumpang">
-                        Jumlah Penumpang [Optional]
-                      </label>
+                      <label for="inputPenumpang">Jumlah Penumpang</label>
                       <Input
                         id="inputPenumpang"
                         placeholder="Jumlah Penumpang"
@@ -140,13 +136,13 @@ function CarList() {
               <div className="col-lg-4 flex-row my-2">
                 <div className="card h-100" key={item.id}>
                   <div className="card-body">
-                    <h5 className="card-title justify-content-center">
+                    <h5 className="card-title d-flex justify-content-center">
                       <img
                         src={item.image}
                         alt="img-car"
                         style={{
-                          minWidth: 270,
-                          maxWidth: "100%",
+                          width: "270px",
+                          height: "240px",
                           justifyContent: "center",
                         }}
                       />

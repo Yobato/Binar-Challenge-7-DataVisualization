@@ -9,7 +9,7 @@ import {
 import "./CarDetail.css";
 import axios from "axios";
 
-import { Input, Select } from "antd";
+import { Input, Select, Image } from "antd";
 import { DatePicker, Space } from "antd";
 import Footer from "../../components/Footer/Footer";
 
@@ -22,7 +22,7 @@ function CarDetail() {
   const HandleDetail = async (id) => {
     try {
       const res = await axios(
-        `https://rent-cars-api.herokuapp.com/customer/car/${id}`
+        `https://rent-cars-api.herokuapp.com/admin/car/${id}`
       );
       setDataDetail(res.data);
     } catch (error) {
@@ -173,15 +173,16 @@ function CarDetail() {
           <div className="col-lg-4">
             <div className="card">
               <div className="card-body">
-                <img
-                  src={dataDetail.image}
-                  alt="detail-Mobil"
-                  style={{
-                    minWidth: 270,
-                    maxWidth: "100%",
-                    justifyContent: "center",
-                  }}
-                />
+                <div className="row d-flex justify-content-center">
+                  <Image
+                    src={dataDetail.image}
+                    width={"270px"}
+                    alt="detail-Mobil"
+                    style={{
+                      justifyContent: "center",
+                    }}
+                  />
+                </div>
                 <h4>{dataDetail.name}</h4>
                 <div className="row">
                   <div className="col-sm-12 d-flex align-items-center">
@@ -197,7 +198,7 @@ function CarDetail() {
                   </div>
                 </div>
 
-                <button className="btn-utama w-100">
+                <button className="btn-utama w-100" href="/success">
                   Lanjutkan Pembayaran
                 </button>
               </div>

@@ -1,0 +1,36 @@
+.btn-custom {
+  padding: 8px 12px;
+  background: #ffffff;
+  border: 1px solid #0d28a6;
+  box-sizing: border-box;
+  border-radius: 3px;
+  color: #0d28a6;
+  font-size: 14px;
+  font-weight: 700;
+  justify-content: end;
+  margin-right: 10px;
+}
+
+.btn-custom-save {
+  padding: 8px 12px;
+  background: #ffffff;
+  border: 1px solid #0d28a6;
+  box-sizing: border-box;
+  border-radius: 3px;
+  color: #0d28a6;
+  font-size: 14px;
+  font-weight: 700;
+  justify-content: end;
+}
+
+.btn-custom:hover {
+  background: #0d28a6;
+  color: #ffffff;
+  transition: 150ms linear;
+}
+
+.btn-custom-save:hover {
+  background: #0d28a6;
+  color: #ffffff;
+  transition: 150ms linear;
+}

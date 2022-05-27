@@ -66,9 +66,7 @@ function SearchHome() {
                       </Select>
                     </div>
                     <div className="col-lg-3">
-                      <label for="inputPenumpang">
-                        Jumlah Penumpang [Optional]
-                      </label>
+                      <label for="inputPenumpang">Jumlah Penumpang</label>
                       <Input
                         id="inputPenumpang"
                         placeholder="Jumlah Penumpang"
