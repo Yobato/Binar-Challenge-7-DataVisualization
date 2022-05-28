@@ -18,7 +18,8 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/Landing" element={<Landing />} />
-      <Route path="/Search" element={<CarList />} />
+      {/* Landing punya component searchHome, searchHome => /search => search:id */}
+      <Route path="/carlist/:tipe" element={<CarList />} />
       <Route path="/Search/:id" element={<CarDetail />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/cars" element={<Cars />} />

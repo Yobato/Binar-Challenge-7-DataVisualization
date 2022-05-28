@@ -1,5 +1,5 @@
 import "./SearchHome.css";
-
+import { useState } from "react";
 // import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import "antd/dist/antd.css";
 import { ClockCircleOutlined, TeamOutlined } from "@ant-design/icons";
@@ -14,13 +14,19 @@ function SearchHome() {
   let navigate = useNavigate();
 
   const navigateDataList = () => {
-    navigate("/Search");
+    navigate(`/carlist/${tipe}`);
   };
 
   const onChange = (date, dateString) => {
     console.log(date, dateString);
   };
 
+  const [tipe, setTipe] = useState(null);
+  const tipeOnChange = (e) => {
+    setTipe(e.target.value);
+  };
+
+  console.log(tipe);
   return (
     <>
       {/* <form onSubmit={handleData}> */}
@@ -33,16 +39,30 @@ function SearchHome() {
                   <div className="row">
                     <div className="col-lg-3">
                       <label for="selectSopir">Pilih Sopir</label>
-                      <Select
+                      <select
+                        className="form-select form-control px-2 border clickable"
+                        onChange={tipeOnChange}
+                        aria-label="Default select example"
+                      >
+                        <option selected value="null">
+                          Pilih Tipe Driver
+                        </option>
+                        <option value="true" className="text-muted">
+                          Dengan Sopir
+                        </option>
+                        <option value="false" className="text-muted">
+                          Tanpa Sopir
+                        </option>
+                      </select>
+                      {/* <Select
                         placeholder="Pilih Sopir"
                         style={{ minWidth: "100%", maxWidth: "100%" }}
                         id="selectSopir"
+                        onChange={(e)=>setTipe(e.target.value)}
                       >
-                        <Option value={"Dengan Sopir"}>Dengan Sopir</Option>
-                        <Option value={"Tanpa Sopir"}>
-                          Tanpa Sopir (Lepas Kunci)
-                        </Option>
-                      </Select>
+                        <Option value="true">Dengan Sopir</Option>
+                        <Option value="false">Tanpa Sopir (Lepas Kunci)</Option>
+                      </Select> */}
                     </div>
                     <div className="col-lg-3">
                       <label for="selectDate">Pilih Tanggal</label>

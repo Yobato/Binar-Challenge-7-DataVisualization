@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./CarList.css";
 import {
   ClockCircleOutlined,
@@ -21,20 +21,41 @@ function CarList() {
   //   const { data } = useParams();
 
   const [dataList, setDataList] = useState([]);
-
-  const handleData = async () => {
-    // setDataList([]);
+  const [loading, setLoading] = useState(false);
+  const params = useParams();
+  const handleData = async (tipeParams) => {
+    setLoading(true);
 
     try {
       const res = await axios("https://rent-car-appx.herokuapp.com/admin/car");
-      setDataList(res.data);
+      // setDataList(res.data);
+      if (tipeParams == null) {
+        setDataList(res.data);
+      } else {
+        setDataList(res.data.filter((obj) => obj.status === tipeParams));
+      }
     } catch (error) {
       console.log(error);
     }
   };
 
+  const [tipe, setTipe] = useState(null);
+  const tipeOnChange = (event) => {
+    if (event.target) {
+      setTipe(event.target.value);
+    }
+  };
+
   useEffect(() => {
-    handleData();
+    if (params.tipe === "true") {
+      handleData(true);
+    } else if (params.tipe === "false") {
+      handleData(false);
+    } else {
+      handleData(null);
+    }
+
+    console.log(dataList);
   }, []);
 
   let navigate = useNavigate();
@@ -49,7 +70,7 @@ function CarList() {
     currency: "IDR",
   });
 
-  console.log(handleData());
+  // console.log(handleData());
   return (
     <div>
       <NavbarHome />
@@ -78,11 +99,10 @@ function CarList() {
                         placeholder="Pilih Sopir"
                         style={{ minWidth: "100%", maxWidth: "100%" }}
                         id="selectSopir"
+                        onChange={tipeOnChange}
                       >
-                        <Option value={"Dengan Sopir"}>Dengan Sopir</Option>
-                        <Option value={"Tanpa Sopir"}>
-                          Tanpa Sopir (Lepas Kunci)
-                        </Option>
+                        <Option value="true">Dengan Sopir</Option>
+                        <Option value="false">Tanpa Sopir (Lepas Kunci)</Option>
                       </Select>
                     </div>
                     <div className="col-lg-3">

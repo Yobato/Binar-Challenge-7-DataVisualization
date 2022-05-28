@@ -50,7 +50,7 @@ function FormAdd() {
     formData.append("name", nama);
     formData.append("category", "small");
     formData.append("price", harga);
-    formData.append("status", false);
+    formData.append("status", true);
     formData.append("image", gambar);
 
     // console.log(datas);
