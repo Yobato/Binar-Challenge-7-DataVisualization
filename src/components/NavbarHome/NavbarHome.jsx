@@ -1,7 +1,14 @@
 import React from "react";
 import "./NavbarHome.css";
+import { useNavigate } from "react-router-dom";
 
 function NavbarHome() {
+  // const navigate = useNavigate();
+
+  // const navLogin = (e) => {
+  //   navigate("/login");
+  //   e.preventDefault();
+  // };
   return (
     <div>
       <nav
@@ -49,9 +56,15 @@ function NavbarHome() {
               <a className="link nav-link me-4" href="#halaman-6">
                 <b>FAQ</b>
               </a>
-              <button type="button" className="btn btn-nav me-0">
-                <strong>Register</strong>
-              </button>
+              <a href="/login">
+                <button
+                  type="button"
+                  className="btn btn-nav me-0"
+                  // onClick={navLogin}
+                >
+                  <strong>Register</strong>
+                </button>
+              </a>
             </div>
           </div>
         </div>

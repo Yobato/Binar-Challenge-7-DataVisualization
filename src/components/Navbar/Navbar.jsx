@@ -10,15 +10,10 @@ import { DownOutlined } from "@ant-design/icons";
 import { Link, useNavigate } from "react-router-dom";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import "./Navbar.css";
+import { FaAngleDown, FaSignOutAlt } from "react-icons/fa";
 
 function Navbar({ toggleSidebar }) {
   const navigate = useNavigate();
-
-  // const [sidebar, setSidebar] = useState(true);
-
-  // const toggleSidebar = () => {
-  //   return setSidebar(!sidebar);
-  // };
 
   const handleLogout = () => {
     localStorage.clear();
@@ -34,17 +29,6 @@ function Navbar({ toggleSidebar }) {
   const navDashboard = () => {
     navigate("/dashboard");
   };
-
-  const menu = (
-    <Menu
-      items={[
-        {
-          label: <a onClick={handleLogout}>Logout</a>,
-          key: "0",
-        },
-      ]}
-    />
-  );
 
   return (
     <div>
@@ -77,7 +61,7 @@ function Navbar({ toggleSidebar }) {
               <li className="nav-item">
                 <form className="d-flex ms-5 align-items-center">
                   <input
-                    className="form-control"
+                    className="form-control me-3"
                     type="search"
                     placeholder="Search"
                     aria-label="Search"
@@ -90,28 +74,39 @@ function Navbar({ toggleSidebar }) {
                   </button>
                 </form>
               </li>
-              <li className="nav-item">
-                {/* <Dropdown overlay={menu} trigger={["click"]}>
-                  <a onClick={(e) => e.preventDefault()}>
-                    <Space
-                      style={{
-                        marginTop: "10px",
-                        marginLeft: "10px",
-                      }}
-                    >
-                      <img
-                        src={userPicture}
-                        alt="user"
-                        width="32"
-                        height="32"
-                        className="rounded-circle me-2"
-                        style={{ objectFit: "cover" }}
-                      />
-                      Ini User
-                      <DownOutlined />
-                    </Space>
-                  </a>
-                </Dropdown> */}
+              <li className="nav-item me-5 ms-3">
+                <div class="btn-group">
+                  <button
+                    type="button"
+                    class="btn"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    style={{ color: "blue" }}
+                  >
+                    <img
+                      src={userPicture}
+                      alt="user"
+                      width="32"
+                      height="32"
+                      className="rounded-circle me-2"
+                      style={{ objectFit: "cover" }}
+                    />
+                    Satriyo B
+                    <FaAngleDown style={{ marginLeft: "10px" }} />
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a
+                        class="dropdown-item d-flex justify-content-between"
+                        href="#"
+                        onClick={handleLogout}
+                      >
+                        Logout
+                        <FaSignOutAlt style={{ marginTop: "4px" }} />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </li>
             </ul>
           </div>

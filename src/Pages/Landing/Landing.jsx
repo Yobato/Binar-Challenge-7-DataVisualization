@@ -2,11 +2,13 @@ import React from "react";
 import Footer from "../../components/Footer/Footer";
 import SearchHome from "../../components/SearchHome/SearchHome";
 import "./Landing.css";
+import NavbarHome from "../../components/NavbarHome/NavbarHome";
 import CarLanding from "../../image/img_car.png";
 
 function Landing() {
   return (
     <>
+      <NavbarHome />
       <div id="halaman-1" className="halaman-1">
         <div className="container-fluid pt-5">
           <div className="row d-flex align-items-center mt-5">

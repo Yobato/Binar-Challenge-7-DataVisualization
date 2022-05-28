@@ -163,7 +163,7 @@ function Dashboard() {
           className={`${
             displaySidebar ? "content-sidebar-shown" : "content-sidebar-hidden"
           } content-section`}
-          style={{ backgroundColor: "#f4f5f7", height: "100%" }}
+          style={{ backgroundColor: "#f4f5f7", height: "100vh" }}
         >
           <div className="row">
             <span style={{ marginBottom: "20px" }}>

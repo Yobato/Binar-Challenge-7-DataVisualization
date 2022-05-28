@@ -4,7 +4,7 @@ import MainMenu from "../../components/MainMenu/MainMenu";
 import Navbar from "../../components/Navbar/Navbar";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Utility from "../../Utility";
-import { FaChevronRight } from "react-icons/fa";
+import { FaChevronRight, FaRegTrashAlt, FaRegEdit } from "react-icons/fa";
 import "./Cars.css";
 import { Button } from "antd";
 import { useNavigate } from "react-router-dom";
@@ -132,15 +132,24 @@ function Cars() {
                         <p className="card-text">
                           <CalendarOutlined /> Tahun 2020
                         </p>
-
-                        <button
-                          // onClick={navigateDetail}
-                          type="button"
-                          className="btn-utama w-100"
-                          value={item.id}
-                        >
-                          Pilih Mobil
-                        </button>
+                        <div className="d-flex justify-content-between">
+                          <button
+                            type="button"
+                            className="btn btn-outline-danger h-100 me-2"
+                            style={{ width: "135pt" }}
+                          >
+                            <FaRegTrashAlt className="me-3" />
+                            Delete
+                          </button>
+                          <button
+                            type="button"
+                            className="btn btn-utama h-100 "
+                            style={{ width: "135pt" }}
+                          >
+                            <FaRegEdit className="me-3" />
+                            Edit
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>

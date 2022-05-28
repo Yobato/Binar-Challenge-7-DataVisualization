@@ -21,24 +21,47 @@ function FormAdd() {
 
   const navigate = useNavigate();
 
-  const [storedData, setStoredData] = useState({
-    name: "",
-    category: "small",
-    price: "",
-    status: "true",
-    image: "",
-  });
+  const navCars = () => {
+    navigate("/cars");
+  };
+
+  const [nama, setNama] = useState(null);
+  const [harga, setHarga] = useState(null);
+
+  const [gambar, setGambar] = useState(null);
+
+  // const [storedData, setStoredData] = useState({
+  //   name: "",
+  //   category: "small",
+  //   price: "",
+  //   status: "true",
+  //   image: gambar,
+  // });
 
   const handleData = async () => {
-    if (!storedData.name || !storedData.price) {
+    if (!nama || !harga) {
       return alert("Please fill all the fields!");
     }
+
+    // console.log(storedData);
+    // console.log(storedData.image);
+
+    const formData = new FormData();
+    formData.append("name", nama);
+    formData.append("category", "small");
+    formData.append("price", harga);
+    formData.append("status", false);
+    formData.append("image", gambar);
+
+    // console.log(datas);
+
+    console.log(gambar.name);
 
     try {
       const res = await axios({
         method: "POST",
         url: "https://rent-car-appx.herokuapp.com/admin/car",
-        data: storedData,
+        data: formData,
       });
 
       if (res.status === 201) {
@@ -97,13 +120,8 @@ function FormAdd() {
                           id="inputNama6"
                           className="form-control"
                           placeholder="Nama"
-                          value={storedData.name}
-                          onChange={(e) =>
-                            setStoredData({
-                              ...storedData,
-                              name: e.target.value,
-                            })
-                          }
+                          // value={storedData.name}
+                          onChange={(e) => setNama(e.target.value)}
                         />
                         <small
                           id="namaHelp"
@@ -127,13 +145,8 @@ function FormAdd() {
                           id="inputHarga6"
                           className="form-control"
                           placeholder="Harga"
-                          value={storedData.price}
-                          onChange={(e) =>
-                            setStoredData({
-                              ...storedData,
-                              price: e.target.value,
-                            })
-                          }
+                          // value={storedData.price}
+                          onChange={(e) => setHarga(e.target.value)}
                         />
                         <small
                           id="hargaHelp"
@@ -158,14 +171,7 @@ function FormAdd() {
                             type="file"
                             id="formFile"
                             style={{ display: "none" }}
-                            // onchange="getNameFile(this.value)"
-                            value={storedData.image}
-                            onChange={(e) =>
-                              setStoredData({
-                                ...storedData,
-                                image: e.target.value,
-                              })
-                            }
+                            onChange={(e) => setGambar(e.target.files[0])}
                             placeholder="No file selected"
                           />
                           <label
@@ -173,7 +179,7 @@ function FormAdd() {
                             id="file-input"
                             className="form-control icon text-secondary"
                           >
-                            {storedData.image}
+                            {gambar === null ? "Pilih gambar" : gambar.name}
                           </label>
                           <span className="input-group-text">
                             <img
@@ -253,7 +259,7 @@ function FormAdd() {
               </div>
             </div>
             <div className="footer-form pt-4">
-              <button type="button" className="btn-custom" href="/Cars">
+              <button type="button" className="btn-custom" onClick={navCars}>
                 Cancel
               </button>
               <button

@@ -31,11 +31,11 @@ function Login() {
         console.log(res);
         localStorage.setItem("token", res.data.access_token);
         navigate("/", { replace: true });
-        // if (res.data.role === "admin") {
-        //   navigate("/dashboard", { replace: true });
-        // } else {
-        //   navigate("/", { replace: true });
-        // }
+        if (res.data.role === "admin") {
+          navigate("/dashboard", { replace: true });
+        } else {
+          navigate("/", { replace: true });
+        }
       }
     } catch (error) {
       console.log(error);

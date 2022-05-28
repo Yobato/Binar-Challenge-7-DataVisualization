@@ -11,6 +11,7 @@ import {
 
 import { Input, Select } from "antd";
 import { DatePicker, Space } from "antd";
+import NavbarHome from "../../components/NavbarHome/NavbarHome";
 import Footer from "../../components/Footer/Footer";
 
 // import { Select } from "antd";
@@ -51,6 +52,7 @@ function CarList() {
   console.log(handleData());
   return (
     <div>
+      <NavbarHome />
       <div
         className="biru"
         style={{ backgroundColor: "#f1f3ff", paddingBottom: "9.5rem" }}
@@ -62,7 +64,6 @@ function CarList() {
           ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
         </p>
       </div>
-
       <div className="Search p-3 " style={{ marginTop: "-4.5rem" }}>
         <div className="Container mx-auto" style={{ maxWidth: "80%" }}>
           <div className="card">
@@ -128,7 +129,6 @@ function CarList() {
           </div>
         </div>
       </div>
-
       <div className="container sectionDataList">
         <div className="row d-flex">
           {dataList?.map((item) => {

@@ -1,4 +1,5 @@
 import React from "react";
+import listItem from "../../image/list_item.png";
 import "./Footer.css";
 
 function Footer() {
@@ -49,7 +50,7 @@ function Footer() {
             <div className="col-lg-4">
               <p>Connect with us</p>
               <img
-                src="./img/list_item.png"
+                src={listItem}
                 style={{ maxWidth: "224px", cursor: "pointer" }}
                 alt="item"
               />

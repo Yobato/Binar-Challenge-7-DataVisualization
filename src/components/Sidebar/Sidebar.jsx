@@ -8,7 +8,7 @@ const Sidebar = (props) => {
       <div className={`${props.show ? "" : "d-none"} sidebar position-fixed`}>
         <p
           style={{
-            padding: "10px 5px 0px 10px",
+            padding: "25px 5px 0px 25px",
             color: "#8a8a8a",
             fontWeight: 600,
             fontSize: "20px",
@@ -16,7 +16,7 @@ const Sidebar = (props) => {
         >
           {props.name}
         </p>
-        <p style={{ backgroundColor: "#ced4ec", padding: "10px" }}>
+        <p style={{ backgroundColor: "#ced4ec", padding: "10px 25px" }}>
           {props.name}
         </p>
       </div>

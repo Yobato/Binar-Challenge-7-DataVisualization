@@ -22,7 +22,7 @@ function CarDetail() {
   const HandleDetail = async (id) => {
     try {
       const res = await axios(
-        `https://rent-cars-api.herokuapp.com/admin/car/${id}`
+        `https://rent-car-appx.herokuapp.com/admin/car/${id}`
       );
       setDataDetail(res.data);
     } catch (error) {
@@ -198,15 +198,20 @@ function CarDetail() {
                   </div>
                 </div>
 
-                <button className="btn-utama w-100" href="/success">
-                  Lanjutkan Pembayaran
-                </button>
+                <a href="/success">
+                  <button className="btn-utama w-100">
+                    Lanjutkan Pembayaran
+                  </button>
+                </a>
               </div>
             </div>
           </div>
         </div>
+
         <div className="next d-flex justify-content-center mt-3">
-          <button className="btn-utama">Lanjutkan Pembayaran</button>
+          <a href="/success">
+            <button className="btn-utama">Lanjutkan Pembayaran</button>
+          </a>
         </div>
       </div>
       <Footer />
