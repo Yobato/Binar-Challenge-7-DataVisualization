@@ -6,6 +6,8 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import { FaChevronRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import "./FormAdd.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function FormAdd() {
   const [displaySidebar, setDisplaySidebar] = useState(true);
@@ -13,11 +15,18 @@ function FormAdd() {
     return setDisplaySidebar(!displaySidebar);
   };
 
-  // function getNameFile() {
-  //   const date = new Date();
-  //   let result = `IMG/${date.getMonth()}/${date.getFullYear()}/001`;
-  //   document.getElementById("file-input").innerHTML = result;
-  // }
+  const notify = () =>
+    toast.success("Data Berhasil Disimpan", {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+
 
   const navigate = useNavigate();
 
@@ -30,30 +39,19 @@ function FormAdd() {
 
   const [gambar, setGambar] = useState(null);
 
-  // const [storedData, setStoredData] = useState({
-  //   name: "",
-  //   category: "small",
-  //   price: "",
-  //   status: "true",
-  //   image: gambar,
-  // });
 
   const handleData = async () => {
     if (!nama || !harga) {
       return alert("Please fill all the fields!");
     }
 
-    // console.log(storedData);
-    // console.log(storedData.image);
-
     const formData = new FormData();
     formData.append("name", nama);
     formData.append("category", "small");
     formData.append("price", harga);
-    formData.append("status", false);
+    formData.append("status", true);
     formData.append("image", gambar);
 
-    // console.log(datas);
 
     console.log(gambar.name);
 
@@ -268,6 +266,7 @@ function FormAdd() {
                 onClick={(e) => {
                   e.preventDefault();
                   handleData();
+                  notify();
                 }}
               >
                 Save

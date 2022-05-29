@@ -16,13 +16,6 @@ import { BsDownload } from "react-icons/bs";
 import { getFilePlugin } from "@react-pdf-viewer/get-file";
 
 function Transaction() {
-  //   const [numPages, setNumPages] = useState(null);
-  //   const [pageNumber, setPageNumber] = useState(1);
-
-  //   function onDocumentLoadSuccess({ numPages }) {
-  //     setNumPages(numPages);
-  //   }
-
   const getFilePluginInstance = getFilePlugin();
   const { Download } = getFilePluginInstance;
 
@@ -119,13 +112,6 @@ function Transaction() {
                   </p>
                 </div>
                 <div className="col-sm-6 d-flex justify-content-end">
-                  {/* <button
-                    type="button"
-                    class="btn btn-outline-primary"
-                    style={{ height: 48, width: "200px" }}
-                  >
-                    
-                  </button> */}
                   <Download>
                     {(props: RenderDownloadProps) => (
                       <button

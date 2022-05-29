@@ -151,8 +151,6 @@ function Dashboard() {
     return setDisplaySidebar(!displaySidebar);
   };
 
-  // const dashboard = useState("Dashboard");
-
   return (
     <>
       <MainMenu />

@@ -15,6 +15,8 @@ import {
   CalendarOutlined,
 } from "@ant-design/icons";
 import axios from "axios";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // import { Alert } from "antd";
 
 function Cars() {
@@ -54,12 +56,20 @@ function Cars() {
     currency: "IDR",
   });
 
-  // const alert = useState({
-  //   visible: "true",
-  // });
 
   return (
     <div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <MainMenu />
       <Navbar toggleSidebar={toggleSidebar} />
       <Sidebar show={displaySidebar} name="Cars" />

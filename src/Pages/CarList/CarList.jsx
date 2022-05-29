@@ -14,17 +14,12 @@ import { DatePicker, Space } from "antd";
 import NavbarHome from "../../components/NavbarHome/NavbarHome";
 import Footer from "../../components/Footer/Footer";
 
-// import { Select } from "antd";
-
 function CarList() {
   const { Option } = Select;
-  //   const { data } = useParams();
 
   const [dataList, setDataList] = useState([]);
 
   const handleData = async () => {
-    // setDataList([]);
-
     try {
       const res = await axios("https://rent-car-appx.herokuapp.com/admin/car");
       setDataList(res.data);
