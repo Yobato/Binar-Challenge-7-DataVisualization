@@ -56,7 +56,6 @@ function Cars() {
     currency: "IDR",
   });
 
-
   return (
     <div>
       <ToastContainer
@@ -99,7 +98,14 @@ function Cars() {
               </h4>
             </div>
             <div className="col-lg-6 d-flex justify-content-end">
-              <Button type="primary" onClick={navAdd}>
+              <Button
+                style={{
+                  backgroundColor: "#2925a0",
+                  color: "#FFFF",
+                  // padding: "8px, 16px",
+                }}
+                onClick={navAdd}
+              >
                 Add New Car
               </Button>
             </div>

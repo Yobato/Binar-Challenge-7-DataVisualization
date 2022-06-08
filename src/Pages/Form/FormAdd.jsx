@@ -27,7 +27,6 @@ function FormAdd() {
       theme: "colored",
     });
 
-
   const navigate = useNavigate();
 
   const navCars = () => {
@@ -38,7 +37,6 @@ function FormAdd() {
   const [harga, setHarga] = useState(null);
 
   const [gambar, setGambar] = useState(null);
-
 
   const handleData = async () => {
     if (!nama || !harga) {
@@ -51,7 +49,6 @@ function FormAdd() {
     formData.append("price", harga);
     formData.append("status", true);
     formData.append("image", gambar);
-
 
     console.log(gambar.name);
 
@@ -99,160 +96,172 @@ function FormAdd() {
                     <p>Add New Car</p>
                   </a>
                 </div>
-                <h2>Add New Car</h2>
+                <h4 style={{ marginBottom: "20px" }}>
+                  <b>Add New Car</b>
+                </h4>
 
                 <div className="form-body">
-                  <form>
-                    <div className="row">
-                      <div className="col-lg-3">
-                        <label for="inputName" className="col-form-label">
-                          Nama
-                        </label>
-                        <label for="wajib" style={{ color: "red" }}>
-                          *
-                        </label>
-                      </div>
-                      <div className="col-lg-9">
-                        <input
-                          type="text"
-                          id="inputNama6"
-                          className="form-control"
-                          placeholder="Nama"
-                          // value={storedData.name}
-                          onChange={(e) => setNama(e.target.value)}
-                        />
-                        <small
-                          id="namaHelp"
-                          className="form-text text-muted"
-                        ></small>
-                      </div>
-                    </div>
-
-                    <div className="row">
-                      <div className="col-lg-3">
-                        <label for="inputPassword6" className="col-form-label">
-                          Harga
-                        </label>
-                        <label for="wajib" style={{ color: "red" }}>
-                          *
-                        </label>
-                      </div>
-                      <div className="col-lg-9">
-                        <input
-                          type="text"
-                          id="inputHarga6"
-                          className="form-control"
-                          placeholder="Harga"
-                          // value={storedData.price}
-                          onChange={(e) => setHarga(e.target.value)}
-                        />
-                        <small
-                          id="hargaHelp"
-                          className="form-text text-muted"
-                        ></small>
-                      </div>
-                    </div>
-
-                    <div className="row">
-                      <div className="col-lg-3">
-                        <label for="inputFoto6" className="col-form-label">
-                          Foto
-                        </label>
-                        <label for="wajib" style={{ color: "red" }}>
-                          *
-                        </label>
-                      </div>
-                      <div className="col-lg-9">
-                        <div className="input-group">
-                          <input
-                            className="form-control"
-                            type="file"
-                            id="formFile"
-                            style={{ display: "none" }}
-                            onChange={(e) => setGambar(e.target.files[0])}
-                            placeholder="No file selected"
-                          />
-                          <label
-                            for="formFile"
-                            id="file-input"
-                            className="form-control icon text-secondary"
-                          >
-                            {gambar === null ? "Pilih gambar" : gambar.name}
-                          </label>
-                          <span className="input-group-text">
-                            <img
-                              src="../public/images/Upload_Icon.png"
-                              alt=""
+                  <div className="card p-2">
+                    <div className="card-body">
+                      <form>
+                        <div className="row mb-3">
+                          <div className="col-lg-3">
+                            <label for="inputName" className="col-form-label">
+                              Nama
+                            </label>
+                            <label for="wajib" style={{ color: "red" }}>
+                              *
+                            </label>
+                          </div>
+                          <div className="col-lg-9">
+                            <input
+                              type="text"
+                              id="inputNama6"
+                              className="form-control"
+                              placeholder="Nama"
+                              // value={storedData.name}
+                              onChange={(e) => setNama(e.target.value)}
                             />
-                          </span>
+                            <small
+                              id="namaHelp"
+                              className="form-text text-muted"
+                            ></small>
+                          </div>
                         </div>
-                        <small
-                          id="fileHelp"
-                          className="form-text text-muted"
-                          style={{ marginLeft: "1px" }}
-                        >
-                          File size max. 2 MB
-                        </small>
-                      </div>
-                    </div>
 
-                    <div className="row">
-                      <div className="col-lg-3">
-                        <label for="inputStartRent6" className="col-form-label">
-                          Start Rent
-                        </label>
-                      </div>
-                      <div className="col-lg-9">
-                        <span> - </span>
-                        <span className="error-notif"></span>
-                      </div>
-                    </div>
+                        <div className="row  mb-3">
+                          <div className="col-lg-3">
+                            <label
+                              for="inputPassword6"
+                              className="col-form-label"
+                            >
+                              Harga
+                            </label>
+                            <label for="wajib" style={{ color: "red" }}>
+                              *
+                            </label>
+                          </div>
+                          <div className="col-lg-9">
+                            <input
+                              type="text"
+                              id="inputHarga6"
+                              className="form-control"
+                              placeholder="Harga"
+                              // value={storedData.price}
+                              onChange={(e) => setHarga(e.target.value)}
+                            />
+                            <small
+                              id="hargaHelp"
+                              className="form-text text-muted"
+                            ></small>
+                          </div>
+                        </div>
 
-                    <div className="row">
-                      <div className="col-lg-3">
-                        <label
-                          for="inputFinishRent6"
-                          className="col-form-label"
-                        >
-                          Finish Rent
-                        </label>
-                      </div>
-                      <div className="col-lg-9">
-                        <span> - </span>
-                        <span className="error-notif"></span>
-                      </div>
-                    </div>
+                        <div className="row  mb-3">
+                          <div className="col-lg-3">
+                            <label for="inputFoto6" className="col-form-label">
+                              Foto
+                            </label>
+                            <label for="wajib" style={{ color: "red" }}>
+                              *
+                            </label>
+                          </div>
+                          <div className="col-lg-9">
+                            <div className="input-group">
+                              <input
+                                className="form-control"
+                                type="file"
+                                id="formFile"
+                                style={{ display: "none" }}
+                                onChange={(e) => setGambar(e.target.files[0])}
+                                placeholder="No file selected"
+                              />
+                              <label
+                                for="formFile"
+                                id="file-input"
+                                className="form-control icon text-secondary"
+                              >
+                                {gambar === null ? "Pilih gambar" : gambar.name}
+                              </label>
+                              <span className="input-group-text">
+                                <img
+                                  src="../public/images/Upload_Icon.png"
+                                  alt=""
+                                />
+                              </span>
+                            </div>
+                            <small
+                              id="fileHelp"
+                              className="form-text text-muted"
+                              style={{ marginLeft: "1px" }}
+                            >
+                              File size max. 2 MB
+                            </small>
+                          </div>
+                        </div>
 
-                    <div className="row">
-                      <div className="col-lg-3">
-                        <label
-                          for="inputCreatedRent6"
-                          className="col-form-label"
-                        >
-                          Created Rent
-                        </label>
-                      </div>
-                      <div className="col-lg-9">
-                        <span> - </span>
-                        <span className="error-notif"></span>
-                      </div>
-                    </div>
+                        <div className="row mb-3">
+                          <div className="col-lg-3">
+                            <label
+                              for="inputStartRent6"
+                              className="col-form-label"
+                            >
+                              Start Rent
+                            </label>
+                          </div>
+                          <div className="col-lg-9">
+                            <span> - </span>
+                            <span className="error-notif"></span>
+                          </div>
+                        </div>
 
-                    <div className="row">
-                      <div className="col-lg-3">
-                        <label
-                          for="inputUpdatedRent6"
-                          className="col-form-label"
-                        >
-                          Updated Rent
-                        </label>
-                      </div>
-                      <div className="col-lg-9">
-                        <span> - </span>
-                        <span className="error-notif"></span>
-                      </div>
+                        <div className="row mb-3">
+                          <div className="col-lg-3">
+                            <label
+                              for="inputFinishRent6"
+                              className="col-form-label"
+                            >
+                              Finish Rent
+                            </label>
+                          </div>
+                          <div className="col-lg-9">
+                            <span> - </span>
+                            <span className="error-notif"></span>
+                          </div>
+                        </div>
+
+                        <div className="row mb-3">
+                          <div className="col-lg-3">
+                            <label
+                              for="inputCreatedRent6"
+                              className="col-form-label"
+                            >
+                              Created Rent
+                            </label>
+                          </div>
+                          <div className="col-lg-9">
+                            <span> - </span>
+                            <span className="error-notif"></span>
+                          </div>
+                        </div>
+
+                        <div className="row">
+                          <div className="col-lg-3">
+                            <label
+                              for="inputUpdatedRent6"
+                              className="col-form-label"
+                            >
+                              Updated Rent
+                            </label>
+                          </div>
+                          <div className="col-lg-9">
+                            <span> - </span>
+                            <span className="error-notif"></span>
+                          </div>
+                        </div>
+                      </form>
                     </div>
-                  </form>
+                  </div>
                 </div>
               </div>
             </div>

@@ -10,6 +10,7 @@ import CarDetail from "./Pages/CarDetail/CarDetail";
 import Home from "./Pages/Home/Home";
 import FormAdd from "./Pages/Form/FormAdd";
 import Login from "./Pages/Login/Login";
+import Register from "./Pages/Register/Register";
 import Transaction from "./Pages/Transaction/Transaction";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
       <Route path="/Landing" element={<Landing />} />
       <Route path="/Search" element={<CarList />} />
       <Route path="/Search/:id" element={<CarDetail />} />

@@ -14,10 +14,17 @@ import { RenderDownloadProps } from "@react-pdf-viewer/get-file";
 import { BsDownload } from "react-icons/bs";
 
 import { getFilePlugin } from "@react-pdf-viewer/get-file";
+import { useNavigate } from "react-router-dom";
 
 function Transaction() {
   const getFilePluginInstance = getFilePlugin();
   const { Download } = getFilePluginInstance;
+
+  const navigate = useNavigate();
+
+  const navHome = () => {
+    navigate("/");
+  };
 
   return (
     <Worker workerUrl="https://unpkg.com/pdfjs-dist@2.13.216/build/pdf.worker.min.js">
@@ -30,6 +37,7 @@ function Transaction() {
                 <button
                   width="24px"
                   style={{ border: "none", backgroundColor: "#F1F3FF" }}
+                  onClick={navHome}
                 >
                   <FaArrowLeft />
                 </button>
@@ -136,7 +144,7 @@ function Transaction() {
                   height: "550px",
                 }}
               >
-                <Viewer fileUrl={pdf} plugins={[getFilePluginInstance]} />;
+                <Viewer fileUrl={pdf} plugins={[getFilePluginInstance]} />
               </div>
             </Card>
           </div>

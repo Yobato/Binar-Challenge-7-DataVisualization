@@ -36,7 +36,7 @@ function Navbar({ toggleSidebar }) {
         <div className="container-fluid">
           <div className="brand d-flex justify-content-between px-3">
             <Link to="/" className="navbar-brand">
-              Navbar
+              Binar
             </Link>
             <button
               onClick={toggleSidebar}
